@@ -8,8 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Sun
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHABLEND_ON
-  m_LightmapFlags: 5
+  m_ShaderKeywords: _ALPHABLEND_ON _EMISSION
+  m_LightmapFlags: 1
   m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
@@ -103,7 +103,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.506
+        second: 0
       data:
         first:
           name: _BumpScale
@@ -132,8 +132,8 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: 0.6985294, g: 0.35932466, b: 0.051362466, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 1, g: 0.9841786, b: 0.42647058, a: 1}
+        second: {r: 1, g: 0.603, b: 0.42647058, a: 1}
