@@ -19,6 +19,9 @@ namespace DigitalRuby.RainMaker
         private float initialStartSpeedExplosion;
         private float initialStartSizeExplosion;
         private readonly ParticleSystem.Particle[] particles = new ParticleSystem.Particle[2048];
+		private float time;
+
+		public Evapouration evap;
 
         [Tooltip("The starting y offset for rain and mist. This will be offset as a percentage of visible height from the top of the visible world.")]
         public float RainHeightMultiplier = 0.15f;
@@ -170,8 +173,39 @@ namespace DigitalRuby.RainMaker
             }
         }
 
-        protected override void Update()
-        {
+        protected override void Update ()
+		{
+			bool rain = false;
+			if (evap.totalTime >= 25f) {
+
+				rain = true;
+			}
+
+			if (rain == true) {
+
+				print (RainIntensity);
+				time += Time.deltaTime;
+				print ("Time: " + time);
+				print ("TIme: " + time);
+				if (time >= 12f) {
+
+					rain = false;
+					evap.totalTime = 0;
+
+				} else if (time >= 8f) {
+
+					RainIntensity = 0.55f;
+				} else if (time >= 5.0f) {
+
+					RainIntensity = 0.3f;
+				} else if (time >= 1f) {
+					RainIntensity = 0.8f;
+				} 
+			} else {
+				RainIntensity = 0;
+			}
+		
+
             base.Update();
 
             cameraMultiplier = (Camera.orthographicSize * 0.25f);
