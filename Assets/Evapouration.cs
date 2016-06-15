@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using ProgressBar;
 using System.Collections;
 
 public class Evapouration : MonoBehaviour {
 
 	public GameObject cloud;
+	public PlayerMovement player;
 	private Color color;
 	public bool evap = false;
 	public Text text;
@@ -24,8 +24,8 @@ public class Evapouration : MonoBehaviour {
 	public Vector2 imgStartPos;
 	public bool click = false;
 	public Rise rise;
-	public ProgressBarBehaviour bar;
 	public float totalTime;
+	public CiclularProgress prog;
 
 	void Start() {
 
@@ -53,6 +53,7 @@ public class Evapouration : MonoBehaviour {
 
 		if (Input.GetMouseButton(0)){
 				
+			player.rise = true;
 			color = cloud.GetComponent<Renderer> ().material.color;
 			color.a = 0.2f; color.r = 1; color.g = 1; color.b = 1;
 			cloud.GetComponent<Renderer> ().material.color = color;
@@ -71,13 +72,13 @@ public class Evapouration : MonoBehaviour {
 
 		} 
 		else {
+			player.rise = false;
 			color.a = 1.0f; color.r = 1; color.g = 1; color.b = 1;
 			cloud.GetComponent<Renderer> ().material.color = color;
 			evap = false;
 			light.enabled = false;
 			click = false;
 			TextReset ();
-			bar.IncrementValue (time);
 			totalTime += time;
 			time = 0;
 		}
