@@ -11,7 +11,7 @@ public class Evapouration : MonoBehaviour {
 	public Text text;
 	public Image arrows;
 	private float start;
-	public Light light;
+	public new Light light;
 	public float time = 0;
 	public float speed;
 	public float speed2;

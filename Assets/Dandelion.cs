@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class dandelion : MonoBehaviour
+public class Dandelion : MonoBehaviour
 // The sine path of the dandelion seed
 // Modified from the code on 
 //http://answers.unity3d.com/questions/803434/how-to-make-projectile-to-shoot-in-a-sine-wave-pat.html
 // and http://answers.unity3d.com/questions/434717/how-to-make-a-sine-wave-with-a-transform.html
 {
-
-    public float MoveSpeed; // Speed of movement
-    public float frequency; // Frequency of sine waves
-    public float amplitude;  // Height of sine wave
-    public float x, y, y_of_cam;
-    public float height; // Camera height
-    public float width; // Camera width
+    public GameObject DandelionSeed;
+    private float MoveSpeed; // Speed of movement
+    private float frequency; // Frequency of sine waves
+    private float amplitude;  // Height of sine wave
+    private float x, y, y_of_cam;
+    private float height; // Camera height
+    private float width; // Camera width
     public bool isCollided;
 
     void Start()
@@ -42,7 +42,7 @@ public class dandelion : MonoBehaviour
             transform.position = new Vector3(x, y, 30);
         }
 
-        else 
+        else
         {
             transform.position = new Vector3
                 (
